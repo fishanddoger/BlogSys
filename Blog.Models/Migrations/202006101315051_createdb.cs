@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class createdb1 : DbMigration
+    public partial class createdb : DbMigration
     {
         public override void Up()
         {
@@ -32,8 +32,8 @@
                         IsDelete = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Articles", t => t.ArticleId, cascadeDelete: true)
-                .ForeignKey("dbo.CategoryInfoes", t => t.CategoryId, cascadeDelete: true)
+                .ForeignKey("dbo.Articles", t => t.ArticleId)
+                .ForeignKey("dbo.CategoryInfoes", t => t.CategoryId)
                 .Index(t => t.ArticleId)
                 .Index(t => t.CategoryId);
             
@@ -48,7 +48,7 @@
                         IsDelete = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.UserInfoes", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.UserInfoes", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -62,8 +62,8 @@
                         IsDelete = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Articles", t => t.ArticleId, cascadeDelete: true)
-                .ForeignKey("dbo.UserInfoes", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.Articles", t => t.ArticleId)
+                .ForeignKey("dbo.UserInfoes", t => t.UserId)
                 .Index(t => t.UserId)
                 .Index(t => t.ArticleId);
             
@@ -78,7 +78,7 @@
                         IsDelete = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Articles", t => t.ArticleId, cascadeDelete: true)
+                .ForeignKey("dbo.Articles", t => t.ArticleId)
                 .Index(t => t.ArticleId);
             
             CreateTable(
@@ -92,15 +92,13 @@
                         IsDelete = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.UserInfoes", t => t.FansId, cascadeDelete: true)
-                .Index(t => t.FansId)
-                .Index(t => t.AuthorId);
+                .ForeignKey("dbo.UserInfoes", t => t.FansId)
+                .Index(t => t.FansId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.FansInfoes", "AuthorId", "dbo.UserInfoes");
             DropForeignKey("dbo.FansInfoes", "FansId", "dbo.UserInfoes");
             DropForeignKey("dbo.Comments", "ArticleId", "dbo.Articles");
             DropForeignKey("dbo.ArticleToUserInfoes", "UserId", "dbo.UserInfoes");
@@ -108,7 +106,6 @@
             DropForeignKey("dbo.ArticleToCategories", "CategoryId", "dbo.CategoryInfoes");
             DropForeignKey("dbo.CategoryInfoes", "UserId", "dbo.UserInfoes");
             DropForeignKey("dbo.ArticleToCategories", "ArticleId", "dbo.Articles");
-            DropIndex("dbo.FansInfoes", new[] { "AuthorId" });
             DropIndex("dbo.FansInfoes", new[] { "FansId" });
             DropIndex("dbo.Comments", new[] { "ArticleId" });
             DropIndex("dbo.ArticleToUserInfoes", new[] { "ArticleId" });

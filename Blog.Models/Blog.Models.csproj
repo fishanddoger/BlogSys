@@ -61,13 +61,9 @@
     <Compile Include="CategoryInfo.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="FansInfo.cs" />
-    <Compile Include="Migrations\202006100143551_createdb.cs" />
-    <Compile Include="Migrations\202006100143551_createdb.designer.cs">
-      <DependentUpon>202006100143551_createdb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006100148447_createdb1.cs" />
-    <Compile Include="Migrations\202006100148447_createdb1.designer.cs">
-      <DependentUpon>202006100148447_createdb1.cs</DependentUpon>
+    <Compile Include="Migrations\202006101315051_createdb.cs" />
+    <Compile Include="Migrations\202006101315051_createdb.designer.cs">
+      <DependentUpon>202006101315051_createdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserInfo.cs" />
@@ -81,11 +77,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202006100143551_createdb.resx">
-      <DependentUpon>202006100143551_createdb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006100148447_createdb1.resx">
-      <DependentUpon>202006100148447_createdb1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006101315051_createdb.resx">
+      <DependentUpon>202006101315051_createdb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
