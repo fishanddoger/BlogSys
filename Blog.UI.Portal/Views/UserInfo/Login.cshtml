@@ -1,13 +1,48 @@
 ﻿
 @{
     ViewBag.Title = "Login";
+    Layout = null;
 }
 
-<h2>Login</h2>
+<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
 
-<form action="/UserInfo/Login" method="post">
-    <input type="text"  name="email" value="" placeholder="请输入用户名" />
-    <input type="password"   name="pwd" value="" placeholder="请输入密码" />
-    <button>登录</button>
-</form>
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+</script>
 
+<link href="~/Content/login.css" rel="stylesheet" />
+<link href="~/Content/fontawesome-all.css" rel="stylesheet" />
+
+<h1>
+    留云博客系统
+</h1>
+
+<div class="container">
+    <div id="clouds">
+        <div class="cloud x1"></div>
+        <!-- Time for multiple clouds to dance around -->
+        <div class="cloud x2"></div>
+        <div class="cloud x3"></div>
+        <div class="cloud x4"></div>
+        <div class="cloud x5"></div>
+    </div>
+    <!-- content form -->
+    <div class="sub-main-w3">
+        <form action="/UserInfo/Login" method="post">
+            <div class="form-style-agile">
+                
+                <input placeholder="手机号/邮箱/用户名" name="email" type="text" required="">
+            </div>
+            <div class="form-style-agile">
+               
+                <input placeholder="密码" name="pwd" type="password" required="">
+            </div>
+            <input type="submit" value="登录">
+        </form>
+    </div>
+    <!-- //content form -->
+</div>
